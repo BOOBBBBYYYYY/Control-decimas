@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Control de Décimas</title>
+
+    <link
+        rel="stylesheet"
+        href="estilos.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================= -->
+    <!-- LOGIN -->
+    <!-- ========================= -->
+
+    <div
+        id="pantalla-login"
+        class="pantalla-login"
+    >
+
+        <div class="login-card">
+
+            <div class="login-icono">
+                📚
+            </div>
+
+            <h1>
+                Control de Décimas
+            </h1>
+
+            <p class="login-subtitulo">
+                Ingresa para administrar tus alumnos
+            </p>
+
+
+            <form id="form-login">
+
+                <input
+                    type="email"
+                    id="login-email"
+                    placeholder="Correo electrónico"
+                    autocomplete="email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="login-password"
+                    placeholder="Contraseña"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="boton-login"
+                >
+                    🔐 Ingresar
+                </button>
+
+            </form>
+
+
+            <div
+                id="mensaje-login"
+                class="mensaje-login"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- APLICACIÓN -->
+    <!-- ========================= -->
+
+    <div
+        id="aplicacion"
+        class="aplicacion oculto"
+    >
+
+
+        <!-- HEADER -->
+
+        <header class="encabezado">
+
+            <div class="encabezado-interior">
+
+
+                <div class="titulo-principal">
+
+                    <span class="icono">
+                        📚
+                    </span>
+
+                    <div>
+
+                        <h1>
+                            Control de Décimas
+                        </h1>
+
+                        <p>
+                            Administración de puntos de alumnos
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="boton-salir"
+                    onclick="cerrarSesion()"
+                >
+                    🚪 Salir
+                </button>
+
+
+            </div>
+
+        </header>
+
+
+
+        <!-- CONTENIDO -->
+
+        <main class="contenedor">
+
+
+            <!-- AGREGAR ALUMNO -->
+
+            <button
+                class="boton-agregar"
+                onclick="mostrarFormulario()"
+            >
+                ➕ Agregar alumno
+            </button>
+
+
+
+            <!-- FORMULARIO -->
+
+            <div
+                id="formulario-alumno"
+                class="tarjeta formulario"
+                style="display: none;"
+            >
+
+                <h2>
+                    👨‍🎓 Nuevo alumno
+                </h2>
+
+                <br>
+
+
+                <input
+                    type="text"
+                    id="nombre-alumno"
+                    placeholder="Nombre del alumno"
+                    autocomplete="off"
+                >
+
+
+                <input
+                    type="text"
+                    id="curso-alumno"
+                    placeholder="Curso (ej: 8° Básico A)"
+                    autocomplete="off"
+                >
+
+
+                <div class="acciones-formulario">
+
+
+                    <button
+                        class="boton boton-sumar"
+                        onclick="agregarAlumno()"
+                    >
+                        ✅ Agregar alumno
+                    </button>
+
+
+                    <button
+                        class="boton boton-cancelar"
+                        onclick="ocultarFormulario()"
+                    >
+                        Cancelar
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FILTRO DE CURSOS -->
+
+            <div class="tarjeta filtro-tarjeta">
+
+
+                <div class="filtro-titulo">
+
+                    <div>
+
+                        <h2>
+                            🏫 Mis cursos
+                        </h2>
+
+                        <p>
+                            Selecciona un curso para ver sus alumnos
+                        </p>
+
+                    </div>
+
+
+                    <span class="icono-filtro">
+                        📚
+                    </span>
+
+                </div>
+
+
+                <select
+                    id="filtro-curso"
+                    onchange="filtrarCurso()"
+                >
+
+                    <option value="todos">
+                        Todos los cursos
+                    </option>
+
+                </select>
+
+
+            </div>
+
+
+
+            <!-- RESUMEN -->
+
+            <div
+                id="resumen-curso"
+                class="tarjeta resumen-curso"
+            >
+
+                <h2>
+                    📊 Resumen
+                </h2>
+
+                <br>
+
+
+                <div class="resumen-datos">
+
+
+                    <div class="dato-resumen">
+
+                        <span>
+                            👨‍🎓
+                        </span>
+
+                        <strong id="total-alumnos">
+                            0
+                        </strong>
+
+                        <small>
+                            Alumnos
+                        </small>
+
+                    </div>
+
+
+                    <div class="dato-resumen">
+
+                        <span>
+                            ⭐
+                        </span>
+
+                        <strong id="total-decimas">
+                            0,0
+                        </strong>
+
+                        <small>
+                            Décimas
+                        </small>
+
+                    </div>
+
+
+                    <div class="dato-resumen">
+
+                        <span>
+                            📈
+                        </span>
+
+                        <strong id="promedio-decimas">
+                            0,0
+                        </strong>
+
+                        <small>
+                            Promedio
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BUSCADOR -->
+
+            <div class="tarjeta buscador-tarjeta">
+
+                <h2>
+                    🔎 Buscar alumno
+                </h2>
+
+                <br>
+
+
+                <input
+                    type="text"
+                    id="buscador-alumno"
+                    placeholder="Escribe el nombre del alumno..."
+                    oninput="buscarAlumno()"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+
+            <!-- LISTA -->
+
+            <div id="lista-alumnos"></div>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- MODAL EDITAR -->
+    <!-- ========================= -->
+
+    <div
+        id="modal-editar"
+        class="modal-fondo oculto"
+    >
+
+        <div class="modal">
+
+
+            <button
+                class="modal-cerrar"
+                onclick="cerrarModalEditar()"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-icono">
+                ✏️
+            </div>
+
+
+            <h2>
+                Editar alumno
+            </h2>
+
+
+            <p class="modal-descripcion">
+                Modifica los datos del alumno.
+            </p>
+
+
+            <label for="modal-nombre">
+                Nombre
+            </label>
+
+
+            <input
+                type="text"
+                id="modal-nombre"
+                placeholder="Nombre del alumno"
+            >
+
+
+            <label for="modal-curso">
+                Curso
+            </label>
+
+
+            <input
+                type="text"
+                id="modal-curso"
+                placeholder="Curso"
+            >
+
+
+            <div class="modal-acciones">
+
+
+                <button
+                    class="boton boton-cancelar"
+                    onclick="cerrarModalEditar()"
+                >
+                    Cancelar
+                </button>
+
+
+                <button
+                    class="boton boton-sumar"
+                    onclick="guardarEdicionAlumno()"
+                >
+                    💾 Guardar cambios
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- MODAL ELIMINAR -->
+    <!-- ========================= -->
+
+    <div
+        id="modal-eliminar"
+        class="modal-fondo oculto"
+    >
+
+        <div class="modal modal-eliminar">
+
+
+            <button
+                class="modal-cerrar"
+                onclick="cerrarModalEliminar()"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-icono modal-icono-rojo">
+                🗑️
+            </div>
+
+
+            <h2>
+                ¿Eliminar alumno?
+            </h2>
+
+
+            <p class="modal-descripcion">
+                Estás a punto de eliminar a:
+            </p>
+
+
+            <strong
+                id="nombre-eliminar"
+                class="nombre-eliminar"
+            ></strong>
+
+
+            <p class="modal-advertencia">
+                ⚠️ Esta acción eliminará también su historial
+                y no se puede deshacer.
+            </p>
+
+
+            <div class="modal-acciones">
+
+
+                <button
+                    class="boton boton-cancelar"
+                    onclick="cerrarModalEliminar()"
+                >
+                    Cancelar
+                </button>
+
+
+                <button
+                    class="boton boton-restar"
+                    onclick="confirmarEliminacion()"
+                >
+                    🗑️ Sí, eliminar
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
