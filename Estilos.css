@@ -1,6 +1,8 @@
-/* =========================
-   GENERAL
-========================= */
+```css
+/* =========================================================
+   CONTROL DE DÉCIMAS
+   DISEÑO GENERAL
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -8,27 +10,32 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-
     font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
         Arial,
-        Helvetica,
         sans-serif;
-
-    background:
-        linear-gradient(
-            135deg,
-            #eef4ff,
-            #f8fafc
-        );
-
-    color: #0f172a;
 
     min-height: 100vh;
 
-}
+    color: #172033;
 
+    background:
+        radial-gradient(
+            circle at top left,
+            #eef5ff 0%,
+            #f7f9fc 42%,
+            #eef2f7 100%
+        );
+}
 
 button,
 input,
@@ -36,387 +43,399 @@ select {
     font-family: inherit;
 }
 
-
 button {
     cursor: pointer;
 }
 
+button,
+input,
+select {
+    outline: none;
+}
 
 .oculto {
     display: none !important;
 }
 
 
-
-/* =========================
+/* =========================================================
    LOGIN
-========================= */
+========================================================= */
 
 .pantalla-login {
-
     min-height: 100vh;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    padding: 20px;
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(96, 165, 250, 0.35),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(59, 130, 246, 0.25),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #0f3d91,
+            #1d4ed8 55%,
+            #2563eb
+        );
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+
+    padding: 42px 38px;
+
+    background: rgba(255, 255, 255, 0.98);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    border-radius: 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 30px 80px rgba(15, 23, 42, 0.30);
+
+    animation: aparecerLogin 0.45s ease;
+}
+
+@keyframes aparecerLogin {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.login-icono {
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #eff6ff
+        );
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.12);
+
+    font-size: 39px;
+}
+
+.login-card h1 {
+    margin-bottom: 9px;
+
+    color: #111827;
+
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.login-subtitulo {
+    margin-bottom: 28px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+.login-card input {
+    width: 100%;
+
+    padding: 14px 16px;
+    margin-bottom: 13px;
+
+    border: 1px solid #d5dce7;
+    border-radius: 13px;
+
+    background: #f8fafc;
+
+    color: #172033;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+.login-card input::placeholder {
+    color: #94a3b8;
+}
+
+.login-card input:focus {
+    background: white;
+
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 4px rgba(59, 130, 246, 0.10);
+}
+
+.boton-login {
+    width: 100%;
+
+    border: none;
+    border-radius: 13px;
+
+    padding: 14px 16px;
 
     background:
         linear-gradient(
             135deg,
             #2563eb,
-            #1e3a8a
+            #1d4ed8
         );
-
-}
-
-
-.login-card {
-
-    width: 100%;
-
-    max-width: 420px;
-
-    background: white;
-
-    padding: 40px 35px;
-
-    border-radius: 25px;
-
-    box-shadow:
-        0 25px 70px
-        rgba(15, 23, 42, 0.25);
-
-    text-align: center;
-
-}
-
-
-.login-icono {
-
-    width: 75px;
-
-    height: 75px;
-
-    margin: 0 auto 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 22px;
-
-    background: #dbeafe;
-
-    font-size: 38px;
-
-}
-
-
-.login-card h1 {
-
-    font-size: 28px;
-
-    margin-bottom: 10px;
-
-}
-
-
-.login-subtitulo {
-
-    color: #64748b;
-
-    margin-bottom: 28px;
-
-}
-
-
-.login-card input {
-
-    width: 100%;
-
-    padding: 14px 15px;
-
-    margin-bottom: 14px;
-
-    border: 1px solid #cbd5e1;
-
-    border-radius: 12px;
-
-    font-size: 15px;
-
-    outline: none;
-
-}
-
-
-.login-card input:focus {
-
-    border-color: #2563eb;
-
-    box-shadow:
-        0 0 0 4px
-        rgba(37, 99, 235, 0.08);
-
-}
-
-
-.boton-login {
-
-    width: 100%;
-
-    border: none;
-
-    padding: 14px;
-
-    border-radius: 12px;
-
-    background: #2563eb;
 
     color: white;
 
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 700;
 
-    font-weight: bold;
+    box-shadow:
+        0 8px 18px rgba(37, 99, 235, 0.22);
 
     transition: 0.2s;
-
 }
-
 
 .boton-login:hover {
+    transform: translateY(-2px);
 
-    background: #1d4ed8;
-
-    transform: translateY(-1px);
-
+    box-shadow:
+        0 12px 25px rgba(37, 99, 235, 0.28);
 }
 
+.boton-login:active {
+    transform: translateY(0);
+}
 
 .mensaje-login {
+    min-height: 18px;
 
     margin-top: 15px;
 
-    font-size: 14px;
-
     color: #dc2626;
 
+    font-size: 13px;
+    font-weight: 600;
 }
 
 
-
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
     background:
         linear-gradient(
             135deg,
-            #0f172a,
-            #1e293b
+            #101827,
+            #172337
         );
 
     color: white;
 
     box-shadow:
-        0 4px 20px
-        rgba(15, 23, 42, 0.18);
-
+        0 5px 25px rgba(15, 23, 42, 0.18);
 }
 
-
 .encabezado-interior {
+    max-width: 1120px;
 
-    max-width: 1100px;
+    margin: 0 auto;
 
-    margin: auto;
-
-    padding: 22px 20px;
+    padding: 18px 22px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     gap: 20px;
-
 }
-
 
 .titulo-principal {
-
     display: flex;
-
     align-items: center;
 
-    gap: 15px;
-
+    gap: 14px;
 }
 
-
 .titulo-principal .icono {
-
     width: 52px;
-
     height: 52px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
+    border-radius: 16px;
+
     background:
-        rgba(255,255,255,0.1);
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.15),
+            rgba(255,255,255,0.06)
+        );
 
-    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.10);
 
-    font-size: 28px;
-
+    font-size: 27px;
 }
-
 
 .titulo-principal h1 {
+    margin-bottom: 3px;
 
-    font-size: 22px;
+    font-size: 21px;
+    font-weight: 800;
 
-    margin-bottom: 4px;
-
+    letter-spacing: -0.3px;
 }
-
 
 .titulo-principal p {
+    color: #aebbd0;
 
-    color: #cbd5e1;
-
-    font-size: 13px;
-
+    font-size: 12px;
 }
 
-
 .boton-salir {
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 11px;
 
-    border: 1px solid
-        rgba(255,255,255,0.2);
+    padding: 10px 14px;
 
-    background:
-        rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.07);
 
     color: white;
 
-    padding: 10px 15px;
-
-    border-radius: 10px;
-
-    font-weight: bold;
+    font-size: 13px;
+    font-weight: 700;
 
     transition: 0.2s;
-
 }
-
 
 .boton-salir:hover {
+    background: rgba(255,255,255,0.14);
 
-    background:
-        rgba(255,255,255,0.15);
-
+    transform: translateY(-1px);
 }
 
 
-
-/* =========================
+/* =========================================================
    CONTENEDOR
-========================= */
+========================================================= */
 
 .contenedor {
+    width: 100%;
+    max-width: 1120px;
 
-    max-width: 1100px;
+    margin: 0 auto;
 
-    margin: auto;
-
-    padding: 30px 20px 60px;
-
+    padding: 30px 22px 70px;
 }
 
 
-
-/* =========================
-   TARJETAS
-========================= */
+/* =========================================================
+   TARJETAS GENERALES
+========================================================= */
 
 .tarjeta {
+    margin-bottom: 20px;
 
-    background: white;
+    padding: 25px;
+
+    background: rgba(255,255,255,0.96);
+
+    border: 1px solid #e5eaf1;
 
     border-radius: 20px;
 
-    padding: 24px;
-
-    margin-bottom: 20px;
-
     box-shadow:
-        0 8px 30px
-        rgba(15, 23, 42, 0.06);
+        0 8px 28px rgba(15, 23, 42, 0.055);
 
-    border: 1px solid
-        #e2e8f0;
-
+    transition:
+        box-shadow 0.2s,
+        transform 0.2s;
 }
-
 
 .tarjeta h2 {
+    color: #182235;
 
-    font-size: 19px;
-
+    font-size: 18px;
+    font-weight: 800;
 }
 
-
 .tarjeta input {
-
     width: 100%;
 
     padding: 13px 15px;
 
-    border: 1px solid #cbd5e1;
-
+    border: 1px solid #d5dce7;
     border-radius: 12px;
 
-    outline: none;
+    background: #f8fafc;
 
-    font-size: 15px;
+    color: #172033;
 
+    font-size: 14px;
+
+    transition: 0.2s;
 }
 
+.tarjeta input::placeholder {
+    color: #94a3b8;
+}
 
 .tarjeta input:focus {
+    background: white;
 
-    border-color: #2563eb;
+    border-color: #3b82f6;
 
     box-shadow:
-        0 0 0 4px
-        rgba(37, 99, 235, 0.08);
-
+        0 0 0 4px rgba(59, 130, 246, 0.09);
 }
 
 
-
-/* =========================
-   AGREGAR
-========================= */
+/* =========================================================
+   BOTÓN AGREGAR
+========================================================= */
 
 .boton-agregar {
-
     width: 100%;
 
+    margin-bottom: 20px;
+
+    padding: 16px 18px;
+
     border: none;
+    border-radius: 16px;
 
     background:
         linear-gradient(
@@ -427,385 +446,383 @@ button {
 
     color: white;
 
-    padding: 17px;
-
-    border-radius: 16px;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: 800;
 
     box-shadow:
-        0 8px 20px
-        rgba(22, 163, 74, 0.2);
+        0 9px 22px rgba(22, 163, 74, 0.20);
 
     transition: 0.2s;
-
 }
-
 
 .boton-agregar:hover {
-
     transform: translateY(-2px);
 
+    box-shadow:
+        0 13px 28px rgba(22, 163, 74, 0.25);
+}
+
+.boton-agregar:active {
+    transform: translateY(0);
 }
 
 
-
-/* =========================
+/* =========================================================
    FORMULARIO
-========================= */
+========================================================= */
+
+.formulario {
+    animation: aparecerTarjeta 0.2s ease;
+}
+
+@keyframes aparecerTarjeta {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .formulario h2 {
-
-    margin-bottom: 5px;
-
+    margin-bottom: 4px;
 }
-
 
 .formulario input {
-
-    margin-bottom: 12px;
-
+    margin-bottom: 11px;
 }
 
-
 .acciones-formulario {
-
     display: flex;
 
     gap: 10px;
 
-    margin-top: 10px;
-
+    margin-top: 8px;
 }
-
 
 .boton {
-
     border: none;
-
-    padding: 12px 15px;
-
     border-radius: 11px;
 
-    font-weight: bold;
+    padding: 11px 15px;
+
+    font-size: 13px;
+    font-weight: 700;
 
     transition: 0.2s;
-
 }
-
 
 .boton:hover {
-
     transform: translateY(-1px);
-
 }
-
 
 .boton-sumar {
-
     background: #dcfce7;
-
     color: #166534;
-
 }
-
 
 .boton-sumar:hover {
-
     background: #bbf7d0;
-
 }
-
 
 .boton-restar {
-
     background: #fee2e2;
-
     color: #991b1b;
-
 }
-
 
 .boton-restar:hover {
-
     background: #fecaca;
-
 }
-
 
 .boton-cancelar {
-
     background: #f1f5f9;
-
     color: #475569;
-
 }
-
 
 .boton-cancelar:hover {
-
     background: #e2e8f0;
-
 }
-
 
 .boton-personalizado {
-
     background: #dbeafe;
-
     color: #1d4ed8;
-
 }
 
+.boton-personalizado:hover {
+    background: #bfdbfe;
+}
 
 .boton-admin {
-
     background: #f1f5f9;
-
     color: #334155;
-
 }
 
+.boton-admin:hover {
+    background: #e2e8f0;
+}
 
 .boton-deshacer {
-
     background: #fff7ed;
-
     color: #9a3412;
+}
 
+.boton-deshacer:hover {
+    background: #ffedd5;
 }
 
 
-
-/* =========================
-   FILTRO
-========================= */
+/* =========================================================
+   FILTRO DE CURSOS
+========================================================= */
 
 .filtro-titulo {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    margin-bottom: 18px;
+    gap: 15px;
 
+    margin-bottom: 17px;
 }
 
-
 .filtro-titulo p {
+    margin-top: 5px;
 
     color: #64748b;
 
     font-size: 13px;
-
-    margin-top: 5px;
-
 }
 
-
 .icono-filtro {
-
     width: 48px;
-
     height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     border-radius: 14px;
 
-    display: flex;
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #dbeafe
+        );
 
-    align-items: center;
-
-    justify-content: center;
-
-    background: #eff6ff;
-
-    font-size: 23px;
-
+    font-size: 22px;
 }
 
-
 #filtro-curso {
-
     width: 100%;
 
     padding: 13px 15px;
 
-    border: 1px solid #cbd5e1;
-
+    border: 1px solid #d5dce7;
     border-radius: 12px;
 
+    background: #f8fafc;
+
+    color: #172033;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+#filtro-curso:focus {
     background: white;
 
-    font-size: 15px;
+    border-color: #3b82f6;
 
-    outline: none;
-
+    box-shadow:
+        0 0 0 4px rgba(59, 130, 246, 0.09);
 }
 
 
-
-/* =========================
+/* =========================================================
    RESUMEN
-========================= */
+========================================================= */
+
+.resumen-curso {
+    overflow: hidden;
+}
 
 .resumen-datos {
-
     display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap: 15px;
-
+    gap: 14px;
 }
-
 
 .dato-resumen {
+    position: relative;
 
-    background: #f8fafc;
+    padding: 20px 15px;
 
+    border: 1px solid #e8edf4;
     border-radius: 16px;
 
-    padding: 20px;
+    background:
+        linear-gradient(
+            145deg,
+            #f8fafc,
+            #f1f5f9
+        );
 
     text-align: center;
-
 }
 
-
 .dato-resumen span {
-
     display: block;
-
-    font-size: 24px;
 
     margin-bottom: 8px;
 
+    font-size: 23px;
 }
-
 
 .dato-resumen strong {
-
     display: block;
 
+    margin-bottom: 3px;
+
+    color: #172033;
+
     font-size: 24px;
-
-    margin-bottom: 4px;
-
+    font-weight: 800;
 }
-
 
 .dato-resumen small {
-
     color: #64748b;
 
+    font-size: 12px;
+    font-weight: 600;
 }
 
 
+/* =========================================================
+   BUSCADOR
+========================================================= */
 
-/* =========================
-   ALUMNOS
-========================= */
+.buscador-tarjeta h2 {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   TARJETAS DE ALUMNOS
+========================================================= */
 
 .tarjeta-alumno {
+    position: relative;
 
-    background: white;
+    margin-bottom: 18px;
+
+    padding: 23px;
+
+    background: rgba(255,255,255,0.98);
 
     border: 1px solid #e2e8f0;
 
     border-radius: 20px;
 
-    padding: 24px;
+    box-shadow:
+        0 8px 26px rgba(15, 23, 42, 0.055);
 
-    margin-bottom: 18px;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        border-color 0.2s;
+}
+
+.tarjeta-alumno:hover {
+    transform: translateY(-2px);
+
+    border-color: #d5deea;
 
     box-shadow:
-        0 8px 25px
-        rgba(15, 23, 42, 0.05);
-
+        0 13px 34px rgba(15, 23, 42, 0.08);
 }
-
 
 .cabecera-alumno {
-
     display: flex;
 
+    align-items: flex-start;
     justify-content: space-between;
 
-    align-items: flex-start;
-
-    gap: 15px;
+    gap: 18px;
 
     margin-bottom: 20px;
-
 }
-
 
 .cabecera-alumno h3 {
-
-    font-size: 20px;
-
     margin-bottom: 5px;
 
-}
+    color: #172033;
 
+    font-size: 19px;
+    font-weight: 800;
+}
 
 .curso-alumno {
-
     color: #64748b;
 
-    font-size: 14px;
-
+    font-size: 13px;
+    font-weight: 600;
 }
-
 
 .decimas-destacadas {
+    min-width: 108px;
 
-    min-width: 100px;
+    padding: 11px 15px;
+
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eff6ff,
+            #dbeafe
+        );
 
     text-align: center;
-
-    background: #eff6ff;
-
-    border-radius: 15px;
-
-    padding: 12px;
-
 }
 
-
 .texto-decimas {
-
     display: block;
 
-    font-size: 11px;
+    margin-bottom: 2px;
 
     color: #64748b;
 
-    margin-bottom: 3px;
+    font-size: 10px;
+    font-weight: 700;
 
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
 }
-
 
 .numero-decimas {
-
-    font-size: 25px;
-
-    font-weight: bold;
-
     color: #2563eb;
 
+    font-size: 25px;
+    font-weight: 900;
 }
 
 
-.grupo-botones {
+/* =========================================================
+   BOTONES DE DÉCIMAS
+========================================================= */
 
+.grupo-botones {
     display: grid;
 
     grid-template-columns:
@@ -813,134 +830,135 @@ button {
 
     gap: 8px;
 
-    margin-bottom: 10px;
-
+    margin-bottom: 9px;
 }
 
+.grupo-botones .boton {
+    padding: 12px 8px;
+
+    font-size: 13px;
+}
 
 .fila-botones {
-
     display: flex;
 
     flex-wrap: wrap;
 
     gap: 8px;
 
-    margin-top: 10px;
-
+    margin-top: 9px;
 }
-
 
 .fila-botones .boton {
-
     flex: 1;
-
+    min-width: 120px;
 }
 
 
-
-/* =========================
+/* =========================================================
    HISTORIAL
-========================= */
+========================================================= */
 
 .historial-contenido {
-
     margin-top: 18px;
-
-    border-top: 1px solid #e2e8f0;
 
     padding-top: 15px;
 
+    border-top: 1px solid #e5eaf1;
+
+    animation: aparecerHistorial 0.2s ease;
 }
 
+@keyframes aparecerHistorial {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .historial-oculto {
-
     display: none;
-
 }
 
-
 .historial-movimiento {
-
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
-    gap: 10px;
-
-    padding: 11px;
-
-    border-radius: 10px;
+    gap: 12px;
 
     margin-bottom: 7px;
 
+    padding: 11px 13px;
+
+    border: 1px solid #e8edf3;
+    border-radius: 11px;
+
     background: #f8fafc;
-
 }
-
 
 .historial-suma {
-
     border-left: 4px solid #22c55e;
-
 }
-
 
 .historial-resta {
-
     border-left: 4px solid #ef4444;
-
 }
-
 
 .movimiento-cantidad {
+    min-width: 48px;
 
-    font-weight: bold;
-
+    font-size: 13px;
+    font-weight: 800;
 }
 
+.historial-suma .movimiento-cantidad {
+    color: #16a34a;
+}
+
+.historial-resta .movimiento-cantidad {
+    color: #dc2626;
+}
 
 .movimiento-motivo {
-
     flex: 1;
 
     color: #475569;
 
-    font-size: 13px;
-
+    font-size: 12px;
+    line-height: 1.4;
 }
-
 
 .movimiento-fecha {
-
     color: #94a3b8;
 
-    font-size: 11px;
+    font-size: 10px;
 
+    white-space: nowrap;
 }
 
-
 .historial-vacio {
+    padding: 17px;
 
     color: #94a3b8;
 
     text-align: center;
 
-    padding: 15px;
-
+    font-size: 13px;
 }
 
 
-
-/* =========================
+/* =========================================================
    MODALES
-========================= */
+========================================================= */
 
 .modal-fondo {
-
     position: fixed;
 
     inset: 0;
@@ -950,235 +968,200 @@ button {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     padding: 20px;
 
     background:
-        rgba(15, 23, 42, 0.65);
+        rgba(15, 23, 42, 0.66);
 
-    backdrop-filter:
-        blur(5px);
-
+    backdrop-filter: blur(6px);
 }
-
 
 .modal-fondo.oculto {
-
     display: none;
-
 }
 
-
 .modal {
-
     position: relative;
 
     width: 100%;
-
     max-width: 430px;
-
-    background: white;
-
-    border-radius: 24px;
 
     padding: 30px;
 
+    background: white;
+
+    border: 1px solid rgba(255,255,255,0.8);
+
+    border-radius: 24px;
+
     box-shadow:
-        0 25px 70px
-        rgba(15, 23, 42, 0.3);
+        0 30px 80px rgba(15, 23, 42, 0.30);
 
     animation:
         aparecerModal
         0.18s
         ease-out;
-
 }
 
-
 @keyframes aparecerModal {
-
     from {
-
         opacity: 0;
 
         transform:
             translateY(12px)
             scale(0.97);
-
     }
 
     to {
-
         opacity: 1;
 
         transform:
             translateY(0)
             scale(1);
-
     }
-
 }
 
-
 .modal-cerrar {
-
     position: absolute;
 
     top: 14px;
-
     right: 16px;
 
     width: 34px;
-
     height: 34px;
 
-    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    border: none;
     border-radius: 50%;
 
     background: #f1f5f9;
 
     color: #64748b;
 
-    font-size: 24px;
-
+    font-size: 23px;
     line-height: 1;
 
+    transition: 0.2s;
 }
 
-
 .modal-cerrar:hover {
-
     background: #e2e8f0;
 
     color: #0f172a;
 
+    transform: rotate(4deg);
 }
 
-
 .modal-icono {
-
     width: 60px;
-
     height: 60px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     margin-bottom: 18px;
 
     border-radius: 18px;
 
-    background: #dbeafe;
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #eff6ff
+        );
 
     font-size: 28px;
-
 }
-
 
 .modal-icono-rojo {
-
-    background: #fee2e2;
-
+    background:
+        linear-gradient(
+            135deg,
+            #fee2e2,
+            #fff1f2
+        );
 }
-
 
 .modal h2 {
-
-    color: #0f172a;
-
     margin-bottom: 8px;
 
+    color: #111827;
+
+    font-size: 21px;
 }
 
-
 .modal-descripcion {
+    margin-bottom: 20px;
 
     color: #64748b;
 
-    font-size: 14px;
-
-    margin-bottom: 20px;
-
+    font-size: 13px;
+    line-height: 1.5;
 }
 
-
 .modal label {
-
     display: block;
 
     margin-bottom: 6px;
 
     color: #334155;
 
-    font-size: 14px;
-
-    font-weight: bold;
-
+    font-size: 13px;
+    font-weight: 700;
 }
 
-
 .modal input {
-
     width: 100%;
 
     padding: 13px 15px;
-
     margin-bottom: 15px;
 
-    border: 1px solid #cbd5e1;
-
+    border: 1px solid #d5dce7;
     border-radius: 12px;
 
-    font-size: 15px;
+    background: #f8fafc;
 
-    outline: none;
+    color: #172033;
 
+    font-size: 14px;
+
+    transition: 0.2s;
 }
 
-
 .modal input:focus {
+    background: white;
 
     border-color: #2563eb;
 
     box-shadow:
-        0 0 0 4px
-        rgba(37, 99, 235, 0.08);
-
+        0 0 0 4px rgba(37, 99, 235, 0.08);
 }
 
-
 .modal-acciones {
-
     display: flex;
 
     gap: 10px;
 
     margin-top: 20px;
-
 }
-
 
 .modal-acciones .boton {
-
     flex: 1;
-
 }
 
-
 .nombre-eliminar {
-
     display: block;
 
     padding: 14px;
-
     margin: 10px 0 15px;
 
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
 
     background: #f8fafc;
@@ -1188,143 +1171,172 @@ button {
     text-align: center;
 
     font-size: 17px;
-
+    font-weight: 800;
 }
 
-
 .modal-advertencia {
-
     padding: 12px;
 
+    border: 1px solid #fed7aa;
     border-radius: 12px;
 
     background: #fff7ed;
 
     color: #9a3412;
 
-    font-size: 13px;
-
+    font-size: 12px;
     line-height: 1.5;
-
 }
 
 
-
-/* =========================
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
 
     .encabezado-interior {
+        padding: 15px;
 
-        align-items: flex-start;
-
+        align-items: center;
     }
 
+    .titulo-principal {
+        gap: 10px;
+    }
+
+    .titulo-principal .icono {
+        width: 45px;
+        height: 45px;
+
+        border-radius: 13px;
+
+        font-size: 23px;
+    }
 
     .titulo-principal h1 {
-
-        font-size: 18px;
-
+        font-size: 17px;
     }
-
 
     .titulo-principal p {
-
-        font-size: 11px;
-
+        font-size: 10px;
     }
-
 
     .boton-salir {
-
         padding: 8px 10px;
 
-        font-size: 12px;
-
+        font-size: 11px;
     }
 
+    .contenedor {
+        padding:
+            22px
+            15px
+            50px;
+    }
 
     .resumen-datos {
-
-        grid-template-columns:
-            1fr;
-
+        grid-template-columns: 1fr;
     }
-
 
     .cabecera-alumno {
-
         flex-direction: column;
-
     }
-
 
     .decimas-destacadas {
-
         width: 100%;
-
     }
-
 
     .grupo-botones {
-
         grid-template-columns:
             repeat(2, 1fr);
-
     }
-
 
     .acciones-formulario {
-
         flex-direction: column;
-
     }
-
-
-    .modal {
-
-        padding: 25px 20px;
-
-    }
-
 
     .modal-acciones {
-
         flex-direction: column-reverse;
-
     }
-
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 480px) {
 
-    .contenedor {
-
-        padding:
-            20px
-            12px
-            40px;
-
+    .pantalla-login {
+        padding: 15px;
     }
 
+    .login-card {
+        padding:
+            32px
+            21px;
+
+        border-radius: 23px;
+    }
+
+    .login-card h1 {
+        font-size: 24px;
+    }
+
+    .contenedor {
+        padding:
+            18px
+            11px
+            40px;
+    }
 
     .tarjeta,
     .tarjeta-alumno {
-
         padding: 18px;
 
+        border-radius: 17px;
     }
 
+    .boton-agregar {
+        padding: 15px;
+    }
 
-    .login-card {
+    .grupo-botones {
+        gap: 7px;
+    }
 
+    .grupo-botones .boton {
         padding:
-            30px
-            22px;
+            11px
+            5px;
 
+        font-size: 12px;
     }
 
+    .fila-botones {
+        flex-direction: column;
+    }
+
+    .fila-botones .boton {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .historial-movimiento {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .movimiento-motivo {
+        min-width: 100%;
+        order: 3;
+    }
+
+    .movimiento-fecha {
+        margin-left: auto;
+    }
+
+    .modal {
+        padding:
+            25px
+            20px;
+    }
 }
+```
